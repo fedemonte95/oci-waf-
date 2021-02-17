@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>JS Bin</title>
+        <script>
+            var array = Array();
+            var storage = {};
+            function add_element(){
+                var user_element = document.getElementById("username").value;
+                var pass_element = document.getElementById("password").value;
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+                storage[user_element] = pass_element;
+                console.log(storage);
+                display_array();
+            }
+            function display_array(){
+                var e = "<hr/>";   
+                for (var user in storage){
+                    e += "<br/>"+"USER: " + user + " PASSWORD: " + storage[user] + "<br/>"
+                }
+                document.getElementById("Result").innerHTML = e;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Contact page!</h1>
+        <p>Username : <input type="text" id="username" placeholder="Enter username here"></p>
+        <p>Password : <input type="password" id="password" placeholder="Enter password here"></p>
+        <input type="button" id="button1" value="Submit" onclick="add_element();"></input>
+        <!-- RESULT IS SHOWN HERE! -->
+    <div id="Result"></div> 
+    </body>
+</html>
+
